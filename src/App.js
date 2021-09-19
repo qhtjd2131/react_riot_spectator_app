@@ -7,7 +7,7 @@ function App() {
   const [user, setUser] = useState([
     {
       id: null,
-      nickName: "소 브",
+      nickName: "쿡 덕",
       onGame: null,
     },
     {
@@ -47,7 +47,8 @@ function App() {
   const getEncryptedId = async () => {
     return Promise.all(
       user.map(async (user1) => {
-        const id = ( //useState 불변성 유지 해야함
+        const id = //useState 불변성 유지 해야함
+        (
           await axios.get(
             `https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${user1.nickName}?api_key=RGAPI-cf5e5172-5e01-445e-b754-b03e22a8901e`
           )

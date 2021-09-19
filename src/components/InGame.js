@@ -1,10 +1,11 @@
 import React from "react";
+import "./InGame.css";
 
 function InGame({ id, nickName, onGame }) {
   return (
-    <h3>
-      {nickName} : {id}, {onGame === "200" ? "게임 중" : "쉬는 중"}
-    </h3>
+    <div className="user">
+      {nickName} : {onGame === "200" ? "게임 중" : "쉬는 중"}
+    </div>
   );
 }
 
