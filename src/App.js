@@ -33,11 +33,10 @@ function App() {
     },
     { id: null, nickName: "갤고리", onGame: null },
   ]);
+
   const [isLoading, setIsLoading] = useState(true);
   const [completeConnect, setCompleteConnect] = useState(false);
-  const [apiKey, setApiKey] = useState(
-    "RGAPI-62e286d8-7277-41bc-885f-0122645af28e"
-  );
+  const [apiKey] = useState("RGAPI-62e286d8-7277-41bc-885f-0122645af28e");
 
   useEffect(() => {
     getEncryptedId().then((rsts) => {
@@ -54,12 +53,13 @@ function App() {
   const getEncryptedId = async () => {
     return Promise.all(
       user.map(async (user1) => {
-        const id = ( //useState 불변성 유지 해야함
+        const id = //useState 불변성 유지 해야함
+        (
           await axios.get(
             `https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${user1.nickName}?api_key=${apiKey}`
           )
         ).data.id;
-        return { id: id, nickName: user1.nickName, onGame: "x" };
+        return { id: id, nickName: user1.nickName, onGame: null };
       })
     );
   };
@@ -85,6 +85,17 @@ function App() {
     );
   };
 
+  const EmptyBox = () => {
+    return <div className="emptyBox"> empty </div>;
+  };
+  const createEmptyBox = () => {
+    const result = [];
+    for (let i = 0; i < 15 - user.length; i++) {
+      result.push(<EmptyBox />);
+    }
+    return result;
+  };
+
   return (
     <section className="container">
       {isLoading ? (
@@ -106,6 +117,8 @@ function App() {
                 onGame={user.onGame}
               />
             ))}
+
+            {createEmptyBox()}
           </div>
         </div>
       )}
