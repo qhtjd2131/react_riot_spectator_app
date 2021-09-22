@@ -28,3 +28,11 @@ body,
   column-gap: 10px;
   row-gap: 10px;
 }
+
+.inputBox {
+  margin-top: 100px;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
