@@ -54,8 +54,7 @@ function App() {
   const getEncryptedId = async () => {
     return Promise.all(
       user.map(async (user1) => {
-        const id = //useState 불변성 유지 해야함
-        (
+        const id = ( //useState 불변성 유지 해야함
           await axios.get(
             `https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${user1.nickName}?api_key=${apiKey}`
           )
@@ -95,7 +94,7 @@ function App() {
         </div>
       ) : (
         <div>
-          <div className="inputBox">
+          <div className="inputContainer">
             <InputBox />
           </div>
           <div className="main">

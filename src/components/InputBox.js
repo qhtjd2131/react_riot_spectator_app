@@ -1,4 +1,5 @@
 import { react, useState } from "react";
+import "./InputBox.css";
 
 function InputBox() {
   const appChange = (e) => {
@@ -6,14 +7,13 @@ function InputBox() {
   };
   const [nickName, setNickName] = useState("");
   return (
-    <div>
-      <input
-        type="text"
-        name="nickName"
-        value={nickName}
-        onChange={appChange}
-      ></input>
-    </div>
+    <input
+      type="text"
+      name="nickName"
+      value={nickName}
+      onChange={appChange}
+      spellCheck={false}
+    ></input>
   );
 }
 

@@ -4,5 +4,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #aaa;
+  border: 2px solid #4285f4;
+  border-radius: 5px;
+}
+
+.user .user_ongame {
+  margin-top: 20px;
+
+  text-align: center;
 }
